@@ -2,5 +2,5 @@
 This repository contains useful files related with mmdetection toolbox:
 
 - Dockerfile
-- Configs files adapted
+- Configs files modified
 - Examples, train and val commands
