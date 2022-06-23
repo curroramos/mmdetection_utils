@@ -12,19 +12,19 @@ mkdir data && cp -r ../usr/src/shared/dataset/coco_data/ data/  && cp -r ../usr/
 ```
 # Train a model
 ```
-python tools/train.py {CONFIG} --gpu-id 0 --cfg-options runner.max_epochs={EPOCHS}   data.samples_per_gpu={BATCH_SIZE}  work_dir='{WORK_DIR}' load_from='{WEIGHTS_LINK}'
+python tools/train.py ${CONFIG} --gpu-id 0 --cfg-options runner.max_epochs=${EPOCHS}   data.samples_per_gpu=${BATCH_SIZE}  work_dir='${WORK_DIR}' load_from='${WEIGHTS_LINK}'
 ```
 # Resume train and change epochs and workdir
 ```
-python3 {CONFIG} --gpu-id 0 --cfg-options runner.max_epochs={EPOCHS}   data.samples_per_gpu={BATCH_SIZE}  work_dir='{WORK_DIR}' --resume-from {WEIGHTS} 
+python3 ${CONFIG} --gpu-id 0 --cfg-options runner.max_epochs=${EPOCHS}   data.samples_per_gpu=${BATCH_SIZE}  work_dir='${WORK_DIR}' --resume-from ${WEIGHTS} 
 ```
 # Evaluate a model
 ```
-python3 tools/test.py {CONFIG} {WEIGHTS} --eval bbox 
+python3 tools/test.py ${CONFIG} ${WEIGHTS} --eval bbox 
 ```
 # Show inferences
 ```
-python3 tools/test.py {CONFIG} {WEIGHTS} --eval show
+python3 tools/test.py ${CONFIG} ${WEIGHTS} --eval show
 ```
 # Robot2020v3 examples
 ```
