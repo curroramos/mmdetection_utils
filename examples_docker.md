@@ -26,11 +26,13 @@ python3 tools/test.py ${CONFIG} ${WEIGHTS} --eval bbox
 ```
 python3 tools/test.py ${CONFIG} ${WEIGHTS} --eval show
 ```
-# Robot2020v3 examples
+# Robot2020v3 examples (docker)
 ```
 python tools/train.py configs/dyhead/atss_r50_fpn_dyhead_1x_CATEC.py --gpu-id 0 --cfg-options runner.max_epochs=50   data.samples_per_gpu=2  work_dir='../usr/src/shared/checkpoints/robot_2020v3/atss_r50_fpn_dyhead_1x_CATEC' load_from='https://download.openmmlab.com/mmdetection/v2.0/dyhead/atss_r50_fpn_dyhead_4x4_1x_coco/atss_r50_fpn_dyhead_4x4_1x_coco_20211219_023314-eaa620c6.pth'
 
-python3 tools/train.py configs/swin/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_CATEC.py --gpu-id 0 --cfg-options runner.max_epochs=50 data.samples_per_gpu=2 work_dir='../usr/src/shared/checkpoints/robot_2020v3/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_CATEC' load_from='https://download.openmmlab.com/mmdetection/v2.0/swin/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_coco/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_coco_20210906_131725-bacf6f7b.pth'
-
+python3 tools/train.py configs/swin/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_CATEC.py --gpu-id 0 --cfg-options runner.max_epochs=50 data.samples_per_gpu=2 work_dir='../usr/src/shared/checkpoints/robot_2020v3/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_CATEC' load_from='https://download.openmmlab.com/mmdetection/v2.0/swin/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_coco/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_coco_20210906_131725-bacf6f7b.pth' ;\
 python3 tools/train.py configs/swin/mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_CATEC.py --gpu-id 0 --cfg-options runner.max_epochs=50   data.samples_per_gpu=2 work_dir='../usr/src/shared/checkpoints/robot_2020v3/mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_CATEC' load_from='https://download.openmmlab.com/mmdetection/v2.0/swin/mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_coco/mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_coco_20210903_104808-b92c91f1.pth'
 ```
+
+
+
