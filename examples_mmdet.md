@@ -39,3 +39,43 @@ python3 tools/train.py configs/swin/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_CATEC.
 python3 tools/train.py configs/swin/mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_CATEC.py --gpu-id 0 --cfg-options runner.max_epochs=50   data.samples_per_gpu=2 work_dir='../usr/src/shared/checkpoints/robot_2020v3/mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_CATEC' load_from='https://download.openmmlab.com/mmdetection/v2.0/swin/mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_coco/mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_coco_20210903_104808-b92c91f1.pth'
 ```
 
+
+# PERSONALIZE MODELS
+Each config file starts from 4 different base modules:
+- dataset
+- default_runtime
+- model
+- schedule
+
+You can modify different things in each base modules:
+- dataset
+    - data settings, data location, batch_size (samples per gpu) ...
+- default_runtime
+    - checkpoint
+- model
+    - model architecture, num_classes
+- schedule
+    - optimizer, learning rate, epochs
+
+These configs options can be modified in config.py file or in the argument line 
+adding:
+```
+--cfg-options key='value'
+```
+
+## Example: building new config file
+0. Load the "parent" model using `_base_` option, e.g.
+```
+_base_ = [
+    '../_base_/datasets/coco_detection.py',
+    '../_base_/schedules/schedule_1x.py',
+    '../_base_/default_runtime.py'
+]
+```
+1. Change model base head  `num_classes=n_classes`. First copy the model head into
+ the new config file, then change this parameter. This will overwrite the base model.
+
+2. Change dataset location, overwritting train, val and test directories.
+
+3. Change number of epochs, batch size, workdir, checkpoint ... However, this is
+ recommended to be done using `--cfg-options` line command argument.
