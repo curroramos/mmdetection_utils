@@ -16,7 +16,7 @@ python tools/train.py ${CONFIG} --gpu-id 0 --cfg-options runner.max_epochs=${EPO
 ```
 # Resume train and change epochs and workdir
 ```
-python3 ${CONFIG} --gpu-id 0 --cfg-options runner.max_epochs=${EPOCHS}   data.samples_per_gpu=${BATCH_SIZE}  work_dir='${WORK_DIR}' --resume-from ${WEIGHTS} 
+python3 tools/train.py ${CONFIG} --gpu-id 0 --cfg-options runner.max_epochs=${EPOCHS}   data.samples_per_gpu=${BATCH_SIZE}  work_dir='${WORK_DIR}' --resume-from ${WEIGHTS} 
 ```
 # Evaluate a model
 ```
@@ -33,6 +33,4 @@ python tools/train.py configs/dyhead/atss_r50_fpn_dyhead_1x_CATEC.py --gpu-id 0 
 python3 tools/train.py configs/swin/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_CATEC.py --gpu-id 0 --cfg-options runner.max_epochs=50 data.samples_per_gpu=2 work_dir='../usr/src/shared/checkpoints/robot_2020v3/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_CATEC' load_from='https://download.openmmlab.com/mmdetection/v2.0/swin/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_coco/mask_rcnn_swin-t-p4-w7_fpn_ms-crop-3x_coco_20210906_131725-bacf6f7b.pth' ;\
 python3 tools/train.py configs/swin/mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_CATEC.py --gpu-id 0 --cfg-options runner.max_epochs=50   data.samples_per_gpu=2 work_dir='../usr/src/shared/checkpoints/robot_2020v3/mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_CATEC' load_from='https://download.openmmlab.com/mmdetection/v2.0/swin/mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_coco/mask_rcnn_swin-s-p4-w7_fpn_fp16_ms-crop-3x_coco_20210903_104808-b92c91f1.pth'
 ```
-
-
 
