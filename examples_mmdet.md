@@ -14,10 +14,9 @@ t=mmdetection  && sudo docker run -it --ipc=host --gpus all -v "$(pwd)"/shared/:
 mkdir data && cp -r ../usr/src/shared/dataset/coco_data/ data/  && cp -r ../usr/src/shared/configs/ .
 ```
 
-
 ## 2. Train a model
 ```
-python tools/train.py ${CONFIG} --gpu-id 0 --cfg-options runner.max_epochs=${EPOCHS}   data.samples_per_gpu=${BATCH_SIZE}  work_dir='${WORK_DIR}' load_from='${WEIGHTS_LINK}'
+python tools/train.py ${CONFIG} --gpu-id 0 --cfg-options runner.max_epochs=${EPOCHS}   data.samples_per_gpu=${BATCH_SIZE}  work_dir=${WORK_DIR} load_from=${WEIGHTS_LINK}
 ```
 ## 2.1 Resume train and change epochs and workdir
 ```
@@ -31,7 +30,10 @@ python3 tools/test.py ${CONFIG} ${WEIGHTS} --eval bbox
 ```
 python3 tools/test.py ${CONFIG} ${WEIGHTS} --eval show
 ```
-## 4. Some examples
+
+## 4 FPS benchmark
+python3 tools/analysis_tools/benchmark.py ${CONFIG} ${WEIGHTS}  NONONONONONONO
+## 5. Some examples
 ```
 python tools/train.py configs/dyhead/atss_r50_fpn_dyhead_1x_CATEC.py --gpu-id 0 --cfg-options runner.max_epochs=50   data.samples_per_gpu=2  work_dir='../usr/src/shared/checkpoints/robot_2020v3/atss_r50_fpn_dyhead_1x_CATEC' load_from='https://download.openmmlab.com/mmdetection/v2.0/dyhead/atss_r50_fpn_dyhead_4x4_1x_coco/atss_r50_fpn_dyhead_4x4_1x_coco_20211219_023314-eaa620c6.pth'
 
